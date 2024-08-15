@@ -12,30 +12,41 @@
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 </head>
-<body class="poppins-regular">
-    <div class="container mx-auto">
-        <nav class="flex justify-between items-center mx-20 py-10">
-                <img src="./assets/icon.svg" alt="" srcset="">
+
+    <nav class="top-0 bg-white/30 z-10 backdrop-blur-xl transition-all ">
+        <div class="container mx-auto flex justify-between items-center  py-10">
+            <img src="./assets/icon.svg" alt="" srcset="">
               <ul class="flex gap-8">
                 <li>
-                    <a href="">Home</a>
+                    <a href="#home">Home</a>
                 </li>
                 <li>
-                    <a href="">E-Learning</a>
+                    <a href="#reason">Alasan</a>
                 </li>
                 <li>
-                    <a href="">Online Exam</a>
+                    <a href="#feature">Fitur</a>
                 </li>
                 <li>
-                    <a href="">Tentang Kami</a>
+                    <a href="#category">Pilihan Kelas</a>
+                </li>
+                <li>
+                    <a href="#work">Cara Kerja</a>
+                </li>
+                <li>
+                    <a href="#testimoni">Testimoni</a>
+                </li>
+                <li>
+                    <a href="#contactus">Kontak kami</a>
                 </li>
                 <li>
                     <a href="" class="bg-purple text-white rounded-md py-2 px-10">Masuk</a>
                 </li>
               </ul>
-        </nav>
+        </div>
+    </nav>
+    <div class="container mx-auto">
 
-        <section>
+        <section id="home">
             <div class="flex justify-between px-20 py-[117px] backdrop-blur-md rounded-[54px] shadow-[4px_4px_30px_rgb(0_0_0_/_0.25)]">
                 <div class="flex flex-col items-start justify-center">
                     <h1 class="poppins-bold text-[64px]">Selamat Datang <br>
@@ -53,7 +64,7 @@
                 </div>
             </div>
         </section>
-        <section class="flex justify-between my-[52px] py-[130px]">
+        <section class="flex justify-between my-[52px] py-[130px]" id="reason">
             <div class="flex flex-col">
                 <div>     
                     <h1 class="poppins-bold text-[36px] max-w-[380px]">Mengapa Harus
@@ -64,11 +75,11 @@
                         dan raih kesuksesan akademis Anda!
                     </p>
                 </div>
-                <div class="flex items-center h-full">
-                    <img src="./assets/banner-2.png" alt="" srcset="">
+                <div class="flex items-center justify-start h-full">
+                    <img src="./assets/image-2.png" alt="" srcset="">
                 </div>
             </div>
-            <div class="flex gap-[37px]">
+            <div class="flex gap-[37px]" >
                 <div class="mt-[150px]">
                     <img class="my-[37px] py-[80px] px-[58px] border-[3px] rounded-[10px] border-purple" src="./assets/image-notification.png" alt="" srcset="">
                     <img class="my-[37px] py-[80px] px-[36px] border-[3px] rounded-[10px] border-purple" src="./assets/image-graphics.png" alt="" srcset="">
@@ -80,13 +91,13 @@
                 </div>
             </div>
         </section>
-        <section class="mt-[121px] mb-[134px]">
+        <section class="mt-[121px] mb-[134px]" id="feature">
             <h1 class="poppins-bold text-[36px] text-center">Tersedia Fitur Menarik!</h1>
             <p class="max-w-[650px] mt-[18px] text-center mx-auto">
                 ExamMaster menawarkan kelas ujian online untuk semua mata pelajaran dengan penilaian otomatis 
             </p>
         </section>
-        <section>
+        <section id="category">
             <h1 class="poppins-bold text-[36px] text-center">Tersedia juga kategori!</h1>
             <!-- Slider main container -->
             <div class="swiper">
@@ -111,7 +122,7 @@
             <p class="mx-auto text-center mt-[72px]">Ayo pilih kelas ujian online di ExamMaster! Nikmati ujian latihan, penilaian otomatis, 
                 dan analisis kinerja untuk semua mata pelajaran utama. Mulai sekarang dan raih kesuksesan akademis!</p>
         </section>
-        <section class="py-[125px]">
+        <section class="py-[125px]" id="work">
             <h1 class="poppins-bold text-[36px]">Cara Kerja  ExamMaster</h1>
             <div class="flex justify-between mt-[94px]">
                 <div class="bg-[#F8CBFF] rounded-[10px] py-[164px] px-[67px]">
@@ -153,7 +164,7 @@
                 </div>
             </div>
         </section>
-        <section class="mt-[112px]">
+        <section class="mt-[112px]" id="testimoni">
             <h1 class="poppins-bold text-[36px] text-center">Testimoni</h1>
             <div class="mt-[72px] flex gap-[63px]">
                 <div class="bg-[#F8CBFF] flex flex-col items-center py-[16px] px-[16px] rounded-[10px]">
@@ -178,7 +189,7 @@
                 </div>
             </div>
         </section>
-        <section class="mt-[156px]">
+        <section class="mt-[156px]" id="contactus">
             <h1 class="poppins-bold text-[36px] mb-6">Hubungi Kami</h1>
             <div class="flex justify-between items-center">
                 <img src="./assets/icon-lg.png" alt="" srcset="">
@@ -216,6 +227,16 @@
         scrollbar: {
             el: '.swiper-scrollbar',
         },
+        });
+        const nav = document.querySelector('nav');
+
+        window.addEventListener("scroll", (event) => {
+            if (window.scrollY >= 50) {
+                nav.classList.add('sticky')
+                console.log(nav);
+            }else{
+                nav.classList.remove('sticky')
+            }
         });
     </script>
 </body>
