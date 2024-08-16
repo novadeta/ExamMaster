@@ -13,42 +13,42 @@
     />
 </head>
 <body class="max-[768px]:overflow-x-hidden">
-    <div class="fixed w-screen h-screen z-50 backdrop-blur-xl px-20 max-[480px]:px-10 py-10 overflow-y-auto hidden">
+    <div class="fixed w-screen h-screen z-50 backdrop-blur-xl px-20 max-[480px]:px-10 py-10 overflow-y-auto hidden" id="menu-dropdown">
         <div class="flex justify-between items-center">
             <h1 class="poppins-bold text-5xl max-[480px]:text-[40px]">Menu</h1>
-            <div class="p-3 cursor-pointer">
+            <div class="p-3 cursor-pointer" id="silang">
                 <h1 class="poppins-bold text-6xl max-[480px]:text-5xl text-purple">X</h1>
             </div>
         </div>
         <div class="h-2 w-full bg-purple mb-5"></div>
         <ul class="flex flex-col gap-8 max-[480px]:gap-6 text-gray-950">
             <li class="w-full bg-[#F8CBFF] px-5 rounded-lg">
-                <a href="#home" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3">Home</a>
+                <a href="#home" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3 navButton">Home</a>
             </li>
             <li class="w-full bg-[#F8CBFF] px-5 rounded-lg">
-                <a href="#feature" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3">Fitur</a>
+                <a href="#feature" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3 navButton">Fitur</a>
             </li>
             <li class="w-full bg-[#F8CBFF] px-5 rounded-lg">
-                <a href="#category" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3">Pilihan Kelas</a>
+                <a href="#category" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3 navButton">Pilihan Kelas</a>
             </li>
             <li class="w-full bg-[#F8CBFF] px-5 rounded-lg">
-                <a href="#work" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3">Cara Kerja</a>
+                <a href="#work" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3 navButton">Cara Kerja</a>
             </li>
             <li class="w-full bg-[#F8CBFF] px-5 rounded-lg">
-                <a href="#testimoni" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3">testimoni</a>
+                <a href="#testimoni" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3 navButton">testimoni</a>
             </li>
             <li class="w-full bg-[#F8CBFF] px-5 rounded-lg">
-                <a href="#contactus" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3">Kontak kami</a>
+                <a href="#contactus" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3 navButton">Kontak kami</a>
             </li>
             <li class="w-full bg-[#F8CBFF] px-5 rounded-lg">
-                <a href="" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3">Masuk</a>
+                <a href="" class="text-3xl max-[600px]:text-2xl max-[480px]:text-xl font-semibold w-full block py-3 navButton">Masuk</a>
             </li>
         </ul>
     </div>
     <nav class="top-0 bg-white/30 z-10 backdrop-blur-xl transition-all ">
         <div class="container max-[1440px]:w-[1100px] max-[1280px]:w-[900px] max-[991px]:w-[700px] max-[768px]:w-[550px] max-[600px]:w-screen max-[600px]:px-8 mx-auto flex justify-between items-center py-10 max-[1680px]:py-8 max-[1366px]:py-4 max-[1440px]:py-6 max-[1280px]:py-8 max-[480px]:py-5">
             <img src="./assets/icon.svg" alt="" srcset="" class="max-[1680px]:w-28 max-[1366px]:w-24 max-[480px]:w-20">
-            <div class="flex flex-col gap-2 max-[480px]:gap-1 p-3 shadow-[0_0_3px_1px_#E43EFF] cursor-pointer rounded-md min-[992px]:hidden">
+            <div class="flex flex-col gap-2 max-[480px]:gap-1 p-3 shadow-[0_0_3px_1px_#E43EFF] cursor-pointer rounded-md min-[992px]:hidden" id="hamburger-menu">
                 <span class="block w-10 max-[480px]:w-8 h-1 bg-purple rounded-sm"></span>
                 <span class="block w-10 max-[480px]:w-8 h-1 bg-purple rounded-sm"></span>
                 <span class="block w-10 max-[480px]:w-8 h-1 bg-purple rounded-sm"></span>
@@ -348,6 +348,25 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        const navHamburger = document.getElementById('hamburger-menu');
+        const menuHamburger = document.getElementById('menu-dropdown');
+        const silang = document.getElementById('silang');
+        const navButton = document.querySelectorAll('.navButton');
+
+        navHamburger.addEventListener('click', () => {
+            menuHamburger.classList.remove('hidden');
+        });
+
+        silang.addEventListener('click', () => {
+            menuHamburger.classList.add('hidden');
+        });
+
+        for (let i = 0; i < navButton.length; i++) {
+            navButton[i].addEventListener('click', () => {
+                menuHamburger.classList.add('hidden');
+            });
+        }
+
         const swiper = new Swiper('.swiper', {
         // Optional parameters
         slidesPerView : 3,
